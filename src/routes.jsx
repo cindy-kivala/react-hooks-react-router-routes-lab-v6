@@ -7,22 +7,21 @@ import Actors from "./pages/Actors";
 import ErrorPage from "./pages/ErrorPage";
 import MovieCard from "./components/MovieCard";
 
-const router = createBrowserRouter([
+export const routes = [
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />, 
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/movies", element: <Movie /> },
       { path: "/movie/:id", element: <MovieCard /> },
-      { path: "/directors", element: <Directors /> }, 
+      { path: "/directors", element: <Directors /> },
       { path: "/actors", element: <Actors /> },
-      // Add a catch-all route for any unmatched paths
       { path: "*", element: <ErrorPage /> },
     ],
   },
-]);
+];
 
-
+const router = createBrowserRouter(routes);
 export default router;
