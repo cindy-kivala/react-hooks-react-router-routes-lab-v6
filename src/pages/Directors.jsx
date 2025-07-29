@@ -5,22 +5,20 @@ function Directors() {
   const [directors, setDirectors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/directors")
+    fetch("http://localhost:4000/directors")
       .then((res) => res.json())
-      .then(setDirectors);
+      .then(data => setDirectors(data));
   }, []);
 
   return (
     <>
       <header>
-        {/* What component should go here? */}
         <NavBar />
       </header>
       <main>
-        {/* Director info here! */}
         <h1>Directors</h1>
         {directors.map((director) => (
-          <article key={director.name}>
+          <article key={director.id}>
             <h2>{director.name}</h2>
             <ul>
               {director.movies.map((movie, index) => (
